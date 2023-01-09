@@ -23,3 +23,15 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+// -- This is visit command --
+Cypress.Commands.add('visitWithIntercept', (url, config = {}) => {
+      cy.intercept('*', req => {
+        // console.log('MATCHED INTERCEPT'); //打印所有网络请求
+        // req.headers['x-use-ppe'] = '1';
+        // req.headers['x-tt-env'] = 'ppe_duoshan_01';
+        // req.headers['x-forwarded-for'] = config?.headers?.['x-forwarded-for'];
+      });
+  
+    cy.visit(url, config);
+  });

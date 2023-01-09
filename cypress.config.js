@@ -8,4 +8,16 @@ module.exports = defineConfig({
       return require('./cypress/plugins/index.js')(on, config)
     },
   },
-})
+  projectId: "fk2v8h",
+  pageLoadTimeout: 30000,
+});
+
+module.exports = require.config({
+  resolve: {
+    paths: {
+      "@cypress/*": ["../../cypress/*"]
+    }
+  },
+});
+
+
